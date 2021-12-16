@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404
 from posts.models import Comment, Follow, Group, Post, User
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
-from rest_framework.validators import UniqueTogetherValidator
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -38,19 +37,11 @@ class FollowSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField(
         read_only=True, default=serializers.CurrentUserDefault()
     )
-    following = serializers.StringRelatedField(
-        default=serializers.CurrentUserDefault()
-    )
+    following = serializers.StringRelatedField()
 
     class Meta:
         model = Follow
         fields = ("user", "following")
-
-        validators = [
-            UniqueTogetherValidator(
-                queryset=Follow.objects.all(), fields=("user", "following")
-            )
-        ]
 
     def validate(self, data):
         if "following" not in self.context["request"].data:
@@ -67,3 +58,10 @@ class FollowSerializer(serializers.ModelSerializer):
                 "Нельзя подписываться на самого себя"
             )
         return data
+
+    def create(self, validated_data):
+        following = get_object_or_404(
+            User, username=self.context['request'].data.get("following"))
+        follow = Follow.objects.create(
+            user=validated_data["user"], following=following)
+        return follow
