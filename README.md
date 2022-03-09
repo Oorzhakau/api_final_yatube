@@ -12,7 +12,7 @@
 * Django 2.2.19
 * djangorestframework 3.12.4
 * djangorestframework-simplejwt 4.7.2
-### Установка:
+### Установка
 
 Клонировать репозиторий и перейти в него в командной строке:
 
@@ -50,7 +50,7 @@ python3 manage.py migrate
 python3 manage.py runserver
 ```
 
-### Примеры:
+### Примеры
 
 1. Request: POST http://127.0.0.1:8000/api/v1/jwt/create/
 ```
@@ -124,6 +124,6 @@ Response:
     "post": 0
 }
 ```
-## Список исполнителей:
+## Список исполнителей
 
 [Александр Ооржак](https://github.com/Oorzhakau)
