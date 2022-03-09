@@ -1,6 +1,6 @@
-# api_final
+# API Yatube
 ### Описание:
-Проект реализации API социальной сети [Yatupe](https://github.com/Oorzhakau/hw05_final).
+Проект реализации API социальной сети [Yatube](https://github.com/Oorzhakau/hw05_final).
 Благодаря данному API клиент может:
 1. Аутентифицироваться по токену;
 2. Добавлять/удалять/редактировать посты;
