@@ -48,19 +48,25 @@ python3 manage.py runserver
 ### Примеры:
 
 1. Request: POST http://127.0.0.1:8000/api/v1/jwt/create/
->{
->    "username": "user1",
->    "password": "qwerty_123"
->}
-Response: 
->{
->    "refresh": "string",
->    "access": "string"
->}
+```
+{
+    "username": "user1",
+    "password": "qwerty_123"
+}
+```
+Response:
+```
+{
+    "refresh": "string",
+    "access": "string"
+}
+```
 2. Request: POST http://127.0.0.1:8000/api/v1/posts/
->{
->    "text": "Текст тестового поста 5 User 1"
->}
+```
+{
+    "text": "Текст тестового поста 5 User 1"
+}
+```
 3. Request: GET http://127.0.0.1:8000/api/v1/posts/
 Response: 
 ```
